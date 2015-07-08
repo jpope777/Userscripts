@@ -55,7 +55,8 @@
 // @include        http*://wk3.org/*
 // @include        http*://diaspora-fr.org/*
 // @include        http*://framasphere.org/*
-// @version        1.1.2
+// @include        http*://pod.jpope.org/*
+// @version        1.1.2.1
 // @grant          none
 // ==/UserScript==
 
@@ -89,7 +90,8 @@ function replace_this_href(a_element) {
 						if (document.getElementById('uniqueposttimestamp_'+this_posting.id)) {
 							document.getElementById('uniqueposttimestamp_'+this_posting.id).href = document.getElementById('uniqueposttimestamp_'+this_posting.id).href.replace(/\/posts\/\d+/,'/posts/'+this_posting.guid);
 							document.getElementById('uniqueposttimestamp_'+this_posting.id).parentNode.appendChild(document.createElement('br'));
-							document.getElementById('uniqueposttimestamp_'+this_posting.id).parentNode.appendChild(document.createTextNode('['+strip_markdown(this_posting.title)+'](/posts/'+this_posting.guid+')'));
+							document.getElementById('uniqueposttimestamp_'+this_posting.id).parentNode.appendChild(document.createTextNode('/posts/'+this_posting.guid));
+							document.getElementById('uniqueposttimestamp_'+this_posting.id).parentNode.appendChild(document.createElement('br'));
 							document.getElementById('uniqueposttimestamp_'+this_posting.id).id = 'uniqueposttimestamp_'+this_posting.guid;
 						}
 						if (document.getElementById('uniqueposttimestamp_'+this_posting.id)) {
